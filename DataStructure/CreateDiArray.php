@@ -1,5 +1,7 @@
 <?php 
 
+namespace Test\DataStructure;
+
 class CreateDiArray
 {
     public static function creatediarray()

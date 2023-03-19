@@ -1,4 +1,5 @@
 <?php 
+namespace Test\DataStructure;
 
 class Graph
 {

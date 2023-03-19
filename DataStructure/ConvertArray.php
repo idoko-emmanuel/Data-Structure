@@ -1,5 +1,7 @@
 <?php 
 
+namespace Test\DataStructure;
+
 class ConvertArray
 {
     public function __construct()

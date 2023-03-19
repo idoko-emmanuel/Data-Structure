@@ -1,6 +1,7 @@
 <?php 
+namespace DataStructure;
 
-class LinkedList
+class listNode
 {
     public $data = null;
     public $next = null;
