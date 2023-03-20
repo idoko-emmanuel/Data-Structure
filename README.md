@@ -39,7 +39,7 @@ Each file contains implementation of the corresponding data structure along with
 
 ## Authors
 
-* **Your Name** - [Idoko Emmanuel](https://github.com/idoko-emmanuel)
+* **Name** - [Idoko Emmanuel](https://github.com/idoko-emmanuel)
 
 ## License
 
