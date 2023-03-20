@@ -1,4 +1,5 @@
 <?php 
+namespace DataStructure;
 
 class Memory
 {

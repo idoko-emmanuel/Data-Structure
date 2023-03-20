@@ -1,5 +1,5 @@
 <?php 
-namespace Test\DataStructure;
+namespace DataStructure;
 
 function findABook(Array $bookList, String $bookName) { 
     $found = FALSE; 

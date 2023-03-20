@@ -1,5 +1,5 @@
 <?php 
-namespace Test\DataStructure;
+namespace DataStructure;
 
 class ChangeSplSize
 {
