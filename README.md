@@ -19,8 +19,8 @@ cd Data-Structure
 
 ## Running the Project
 
-To run the project, navigate to the project directory and run any of the PHP files using the command line. For example, to run the `LinkedList.php` file, you can use the following command:
-php LinkedList.php
+To run the project, navigate to the project directory and run any of the PHP files using the command line. For example, to run the `DataStructure/LinkedList.php` file, you can use the following command:
+php DataStructure/LinkedList.php
 
 This will execute the PHP file and output the results in the command line.
 
