@@ -180,6 +180,22 @@ class LinkedList {
             } 
         } 
     }
+
+    public function getNthNode(int $n = 0) { 
+        $count = 1; 
+        if ($this->_firstNode !== NULL) { 
+            $currentNode = $this->_firstNode; 
+            while ($currentNode !== NULL) { 
+                if ($count === $n) { 
+                    return $currentNode; 
+                } 
+                $count++; 
+                $currentNode = $currentNode->next; 
+            } 
+        } 
+    } 
+
+    echo "2nd Item is: ".$BookTitles->getNthNode(2)->data; 
 } 
 
 $BookTitles = new LinkedList(); 
