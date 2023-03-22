@@ -72,6 +72,29 @@ class LinkedList {
             }
         }
     }
+
+    public function insertAfter(String $data, String $query = null)
+    {
+        $newNode = new listNode($data);
+        if($this->_firstNode) {
+            $nextNode = null;
+            $currentNode = $this->_firstNode;
+            while($currentNode !== null) {
+                if($currentNode->data === $query)
+                {
+                    if($nextNode !== null)
+                    {
+                        $newNode->next = $nextNode;
+                    }
+                    $currentNode->next = $newNode;
+                    $this->_totalNodes++;
+                    break;
+                }
+                $currentNode = $currentNode->next;
+                $nextNode = $currentNode->next;
+            }
+        }
+    }
 } 
 
 $BookTitles = new LinkedList(); 
@@ -80,7 +103,8 @@ $BookTitles->insert("Introduction to PHP and Data structures");
 $BookTitles->insert("Programming Intelligence"); 
 $BookTitles->display(); 
 $BookTitles->search("Introduction to lgorithm");
-$BookTitles->insertBefore("Are you a dog?", "Introduction to PHP and Data structures"); 
+$BookTitles->insertBefore("This comes second", "Introduction to PHP and Data structures"); 
+$BookTitles->insertAfter("This comes last", "Programming Intelligence"); 
 $BookTitles->display();
 
 ?>
