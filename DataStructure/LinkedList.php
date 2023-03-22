@@ -112,6 +112,57 @@ class LinkedList {
         }
         return false;
     }
+
+    public function deleteLast()
+    {
+        if($this->_firstNode !== null)
+        {
+            $currentNode = $this->_firstNode;
+            if($currentNode->next === null)
+            {
+                $this->_firstNode = null;
+            }else {
+                $previousNode = null;
+
+                while($currentNode->next !== null)
+                {
+                    $previousNode = $currentNode;
+                    $currentNode = $currentNode->next;
+                }
+
+                $previousNode->next = null;
+                $this->_totalNodes--;
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    public function delete(string $query = null)
+    {
+        if($this->_firstNode) {
+            $previous = null;
+            $currentNode = $this->_firstNode;
+            while($currentNode !== null)
+            {
+                if($currentNode->data === $query)
+                {
+                    if($currentNode->next === null)
+                    {
+                        $previous->next = null;
+                    } else {
+                        $previous->next = $currentNode->next;
+                    }
+
+                    $this->_totalNodes--;
+                    break;
+                }
+                $previous = $currentNode;
+                $currentNode = $currentNode->next;
+            }
+        }
+    }
 } 
 
 $BookTitles = new LinkedList(); 
@@ -119,11 +170,17 @@ $BookTitles->insert("Introduction to Algorithm");
 $BookTitles->insert("Introduction to PHP and Data structures"); 
 $BookTitles->insert("Programming Intelligence"); 
 $BookTitles->display(); 
-$BookTitles->search("Introduction to lgorithm");
+echo "\n Search for a node\n\n";
+$BookTitles->search("Introduction to algorithm");
+echo "\n Insert before and after a node\n\n";
 $BookTitles->insertBefore("This comes second", "Introduction to PHP and Data structures"); 
 $BookTitles->insertAfter("This comes last", "Programming Intelligence"); 
 $BookTitles->display();
+echo "\n Delete first and last node\n\n";
 $BookTitles->deleteFirst();
-echo "First node deleted \n";
-$BookTitles->display(); 
+$BookTitles->deleteLast();
+$BookTitles->display();
+echo "\n Search and delete node\n\n";
+$BookTitles->delete("Programming Intelligence");
+$BookTitles->display();
 ?>
