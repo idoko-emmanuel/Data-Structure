@@ -95,6 +95,23 @@ class LinkedList {
             }
         }
     }
+
+    public function deleteFirst()
+    {
+        if($this->_firstNode !== null)
+        {
+            if($this->_firstNode->next !== null)
+            {
+                $this->_firstNode = $this->_firstNode->next;
+            } else {
+                $this->_firstNode = NULL;
+            }
+
+            $this->_totalNodes--;
+            return true;
+        }
+        return false;
+    }
 } 
 
 $BookTitles = new LinkedList(); 
@@ -106,5 +123,7 @@ $BookTitles->search("Introduction to lgorithm");
 $BookTitles->insertBefore("This comes second", "Introduction to PHP and Data structures"); 
 $BookTitles->insertAfter("This comes last", "Programming Intelligence"); 
 $BookTitles->display();
-
+$BookTitles->deleteFirst();
+echo "First node deleted \n";
+$BookTitles->display(); 
 ?>
