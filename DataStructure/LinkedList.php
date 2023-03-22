@@ -163,6 +163,23 @@ class LinkedList {
             }
         }
     }
+
+    public function reverse() { 
+        if ($this->_firstNode !== NULL) { 
+            if ($this->_firstNode->next !== NULL) { 
+                $reversedList = NULL; 
+                $next = NULL; 
+                $currentNode = $this->_firstNode; 
+                while ($currentNode !== NULL) { 
+                    $next = $currentNode->next; 
+                    $currentNode->next = $reversedList; 
+                    $reversedList = $currentNode; 
+                    $currentNode = $next; 
+                } 
+                $this->_firstNode = $reversedList; 
+            } 
+        } 
+    }
 } 
 
 $BookTitles = new LinkedList(); 
@@ -170,17 +187,24 @@ $BookTitles->insert("Introduction to Algorithm");
 $BookTitles->insert("Introduction to PHP and Data structures"); 
 $BookTitles->insert("Programming Intelligence"); 
 $BookTitles->display(); 
+
 echo "\n Search for a node\n\n";
 $BookTitles->search("Introduction to algorithm");
 echo "\n Insert before and after a node\n\n";
 $BookTitles->insertBefore("This comes second", "Introduction to PHP and Data structures"); 
 $BookTitles->insertAfter("This comes last", "Programming Intelligence"); 
 $BookTitles->display();
+
 echo "\n Delete first and last node\n\n";
 $BookTitles->deleteFirst();
 $BookTitles->deleteLast();
 $BookTitles->display();
+
 echo "\n Search and delete node\n\n";
 $BookTitles->delete("Programming Intelligence");
+$BookTitles->display();
+
+echo "\n Reverse list\n\n";
+$BookTitles->reverse();
 $BookTitles->display();
 ?>
