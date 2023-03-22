@@ -195,7 +195,6 @@ class LinkedList {
         } 
     } 
 
-    echo "2nd Item is: ".$BookTitles->getNthNode(2)->data; 
 } 
 
 $BookTitles = new LinkedList(); 
@@ -223,4 +222,5 @@ $BookTitles->display();
 echo "\n Reverse list\n\n";
 $BookTitles->reverse();
 $BookTitles->display();
+echo "\n 2nd Item is: ".$BookTitles->getNthNode(2)->data; 
 ?>
