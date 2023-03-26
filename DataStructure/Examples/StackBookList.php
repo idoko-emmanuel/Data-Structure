@@ -7,39 +7,36 @@ use DataStructure\LinkedList\SinglyLinkedList;
 
 class StackBookList implements Stack { 
 
-    class BookList implements Stack { 
+    private $stack; 
 
-        private $stack; 
-    
-        public function __construct() { 
-          $this->stack = new SinglyLinkedList(); 
-        }
-    
-        public function pop(): string { 
-    
-          if ($this->isEmpty()) { 
-              throw new UnderflowException('Stack is empty'); 
-          } else { 
-              $lastItem = $this->top(); 
-              $this->stack->deleteLast(); 
-              return $lastItem; 
-          } 
+    public function __construct() { 
+        $this->stack = new SinglyLinkedList(); 
+    }
+
+    public function pop(): string { 
+
+        if ($this->isEmpty()) { 
+            throw new UnderflowException('Stack is empty'); 
+        } else { 
+            $lastItem = $this->top(); 
+            $this->stack->deleteLast(); 
+            return $lastItem; 
         } 
-    
-        public function push(string $newItem) { 
-    
-          $this->stack->insert($newItem); 
-        } 
+    } 
+
+    public function push(string $newItem) { 
+
+        $this->stack->insert($newItem); 
+    } 
     
     
     public function top(): string { 
       return $this->stack->getNthNode($this->stack->getSize())->data; 
     } 
     
-        public function isEmpty(): bool { 
-          return $this->stack->getSize() == 0; 
-        } 
-    }
+    public function isEmpty(): bool { 
+        return $this->stack->getSize() == 0; 
+    } 
 }
 
 try { 
