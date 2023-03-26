@@ -2,10 +2,11 @@
 namespace DataStructure\LinkedList;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
+use DataStructure\Abstracts\DoublyList;
 use DataStructure\LinkedList\DoublyListNode;
 
 
-class DoublyLinkedList  
+class DoublyLinkedList extends DoublyList
 {
     private $_firstNode = NULL;
     private $_lastNode = NULL;
