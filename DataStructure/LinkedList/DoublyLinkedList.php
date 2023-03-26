@@ -130,7 +130,7 @@ class DoublyLinkedList
     }
 
     /*Deleting the last node
-Deleting the last node requires us to set a second to last node as the new last node. Also, the newly created last node should not have any next reference. The code sample is shown here:*/
+    Deleting the last node requires us to set a second to last node as the new last node. Also, the newly created last node should not have any next reference. The code sample is shown here:*/
 
     public function deleteLast() { 
         if ($this->_lastNode !== NULL) { 
@@ -148,6 +148,31 @@ Deleting the last node requires us to set a second to last node as the new last 
             } 
         } 
         return FALSE; 
+    }
+
+    /*Searching for and deleting one node
+    When we are deleting a node from the middle of the list, we have to readjust the previous and the following node of the item we are looking for. First, we will find the intended node. Get the previous node of the target node, along with the next node. Then, assign the node following the previous node to point to the next node after the target node, and the same applies for the previous node in a reverse manner. Here is the code for that: */
+
+    public function delete(string $query = NULL) { 
+        if ($this->_firstNode) { 
+            $previous = NULL;
+            $currentNode = $this->_firstNode; 
+            while ($currentNode !== NULL) { 
+                if ($currentNode->data === $query) { 
+                    if ($currentNode->next === NULL) { 
+                        $previous->next = NULL; 
+                    } else { 
+                        $previous->next = $currentNode->next; 
+                        $currentNode->next->prev = $previous; 
+                    }
+
+                    $this->_totalNode--; 
+                    break; 
+                }
+                $previous = $currentNode; 
+                $currentNode = $currentNode->next; 
+            }
+        }
     }
     
 }
