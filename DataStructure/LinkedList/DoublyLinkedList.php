@@ -57,6 +57,98 @@ class DoublyLinkedList
         return TRUE;
     }
 
+    /*Inserting before a specific node
+    Inserting before a specific node requires us to find the node first, and based on its position, we need to change the next and previous nodes for the new node, the target node, and the node before the target node, as follows:*/
+
+    public function insertBefore(string $data = NULL, string $query =  
+      NULL) {
+        $newNode = new ListNode($data); 
+
+        if ($this->_firstNode) { 
+            $previous = NULL; 
+            $currentNode = $this->_firstNode; 
+            while ($currentNode !== NULL) { 
+                if ($currentNode->data === $query) { 
+                    $newNode->next = $currentNode; 
+                    $currentNode->prev = $newNode; 
+                    $previous->next = $newNode; 
+                    $newNode->prev = $previous; 
+                    $this->_totalNode++; 
+                    break; 
+                }
+                $previous = $currentNode; 
+                $currentNode = $currentNode->next; 
+            }
+        }
+    }
+
+    /*Inserting after a specific node
+    Inserting after a specific node is similar to the method we just discussed. Here, we need to change the next and previous nodes for the new node, the target node, and the node following the target node. Here is the code for that:*/
+
+    public function insertAfter(string $data = NULL, string $query = 
+      NULL) { 
+        $newNode = new ListNode($data);
+
+        if ($this->_firstNode) { 
+            $nextNode = NULL; 
+            $currentNode = $this->_firstNode; 
+            while ($currentNode !== NULL) { 
+                if ($currentNode->data === $query) { 
+                    if ($nextNode !== NULL) { 
+                        $newNode->next = $nextNode; 
+                    } 
+                    if ($currentNode === $this->_lastNode) { 
+                        $this->_lastNode = $newNode; 
+                    } 
+                    $currentNode->next = $newNode; 
+                    $nextNode->prev = $newNode; 
+                    $newNode->prev = $currentNode; 
+                    $this->_totalNode++; 
+                    break; 
+                } 
+                $currentNode = $currentNode->next; 
+                $nextNode = $currentNode->next; 
+            }
+        }
+    }
+
+    /*Deleting the first node
+    When we remove the first node from a doubly linked list, we just need to make the second node the first node. Set the new first node's previous node to NULL and reduce the total node count, just like the following code:*/
+
+    public function deleteFirst() { 
+        if ($this->_firstNode !== NULL) { 
+            if ($this->_firstNode->next !== NULL) { 
+                $this->_firstNode = $this->_firstNode->next; 
+                $this->_firstNode->prev = NULL; 
+            } else { 
+                $this->_firstNode = NULL; 
+            } 
+            $this->_totalNode--; 
+            return TRUE; 
+        } 
+        return FALSE; 
+    }
+
+    /*Deleting the last node
+Deleting the last node requires us to set a second to last node as the new last node. Also, the newly created last node should not have any next reference. The code sample is shown here:*/
+
+    public function deleteLast() { 
+        if ($this->_lastNode !== NULL) { 
+
+            $currentNode = $this->_lastNode; 
+            if ($currentNode->prev === NULL) { 
+                $this->_firstNode = NULL; 
+                $this->_lastNode = NULL; 
+            } else { 
+                $previousNode = $currentNode->prev; 
+                $this->_lastNode = $previousNode; 
+                $previousNode->next = NULL; 
+                $this->_totalNode--; 
+                return TRUE; 
+            } 
+        } 
+        return FALSE; 
+    }
     
 }
 
