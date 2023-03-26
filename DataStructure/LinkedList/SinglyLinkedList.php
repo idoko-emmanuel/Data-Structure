@@ -211,43 +211,43 @@ class SinglyLinkedList extends SinglyList implements \Iterator {
 
 } 
 
-$BookTitles = new SinglyLinkedList(); 
-$BookTitles->insert("Introduction to Algorithm"); 
-$BookTitles->insert("Introduction to PHP and Data structures"); 
-$BookTitles->insert("Programming Intelligence"); 
-$BookTitles->display(); 
+// $BookTitles = new SinglyLinkedList(); 
+// $BookTitles->insert("Introduction to Algorithm"); 
+// $BookTitles->insert("Introduction to PHP and Data structures"); 
+// $BookTitles->insert("Programming Intelligence"); 
+// $BookTitles->display(); 
 
-echo "\n Search for a node\n\n";
-$BookTitles->search("Introduction to algorithm");
+// echo "\n Search for a node\n\n";
+// $BookTitles->search("Introduction to algorithm");
 
-echo "\n Insert before and after a node\n\n";
-$BookTitles->insertBefore("This comes second", "Introduction to PHP and Data structures"); 
-$BookTitles->insertAfter("This comes last", "Programming Intelligence"); 
-$BookTitles->display();
+// echo "\n Insert before and after a node\n\n";
+// $BookTitles->insertBefore("This comes second", "Introduction to PHP and Data structures"); 
+// $BookTitles->insertAfter("This comes last", "Programming Intelligence"); 
+// $BookTitles->display();
 
-echo "\n Using Iterator interface, and implementing its methods, linked list is now iterable \n\n";
+// echo "\n Using Iterator interface, and implementing its methods, linked list is now iterable \n\n";
 
-foreach ($BookTitles as $index => $title) { 
-    echo ($index+1)." ".$title . "\n"; 
-}
+// foreach ($BookTitles as $index => $title) { 
+//     echo ($index+1)." ".$title . "\n"; 
+// }
 
-echo "\n Using Iterator methods to iterate \n\n";
+// echo "\n Using Iterator methods to iterate \n\n";
 
-for ($BookTitles->rewind(); $BookTitles->valid(); $BookTitles->next()) { 
-    echo $BookTitles->current() . "\n"; 
-}
+// for ($BookTitles->rewind(); $BookTitles->valid(); $BookTitles->next()) { 
+//     echo $BookTitles->current() . "\n"; 
+// }
 
-echo "\n Delete first and last node\n\n";
-$BookTitles->deleteFirst();
-$BookTitles->deleteLast();
-$BookTitles->display();
+// echo "\n Delete first and last node\n\n";
+// $BookTitles->deleteFirst();
+// $BookTitles->deleteLast();
+// $BookTitles->display();
 
-echo "\n Search and delete node\n\n";
-$BookTitles->delete("Programming Intelligence");
-$BookTitles->display();
+// echo "\n Search and delete node\n\n";
+// $BookTitles->delete("Programming Intelligence");
+// $BookTitles->display();
 
-echo "\n Reverse list\n\n";
-$BookTitles->reverse();
-$BookTitles->display();
-echo "\n 2nd Item is: ".$BookTitles->getNthNode(2)->data; 
+// echo "\n Reverse list\n\n";
+// $BookTitles->reverse();
+// $BookTitles->display();
+// echo "\n 2nd Item is: ".$BookTitles->getNthNode(2)->data; 
 ?>
