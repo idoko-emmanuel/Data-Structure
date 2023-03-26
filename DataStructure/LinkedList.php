@@ -4,52 +4,30 @@ namespace DataStructure;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use DataStructure\listNode;
+use DataStructure\Traits\iterateLinkedList;
 
 
 class LinkedList implements \Iterator{ 
+    use iterateLinkedList;
 
     private $_firstNode = NULL; 
     private $_totalNodes = 0; 
-    private $_currentNode = NULL; 
-    private $_currentPosition = 0; 
-
-    public function current() { 
-        return $this->_currentNode->data; 
-    } 
-
-    public function next() { 
-        $this->_currentPosition++; 
-        $this->_currentNode = $this->_currentNode->next; 
-    } 
-
-    public function key() { 
-        return $this->_currentPosition; 
-    } 
-
-    public function rewind() { 
-        $this->_currentPosition = 0; 
-        $this->_currentNode = $this->_firstNode; 
-    } 
-
-    public function valid() { 
-        return $this->_currentNode !== NULL; 
-    }
-
+    
     public function insert(string $data = NULL) { 
-       $newNode = new listNode($data); 
-
-        if ($this->_firstNode === NULL) {           
-            $this->_firstNode = &$newNode;             
-        } else { 
-            $currentNode = $this->_firstNode; 
-            while ($currentNode->next !== NULL) { 
-                $currentNode = $currentNode->next; 
-            } 
-            $currentNode->next = $newNode; 
-        } 
-       $this->_totalNodes++; 
-        return TRUE; 
-    } 
+        $newNode = new listNode($data); 
+ 
+         if ($this->_firstNode === NULL) {           
+             $this->_firstNode = &$newNode;             
+         } else { 
+             $currentNode = $this->_firstNode; 
+             while ($currentNode->next !== NULL) { 
+                 $currentNode = $currentNode->next; 
+             } 
+             $currentNode->next = $newNode; 
+         } 
+        $this->_totalNodes++; 
+         return TRUE; 
+     } 
 
     public function display() { 
       echo "Total book titles: ".$this->_totalNodes."\n"; 
@@ -241,6 +219,8 @@ echo "\n Using Iterator interface, and implementing its methods, linked list is 
 foreach ($BookTitles as $index => $title) { 
     echo ($index+1)." ".$title . "\n"; 
 }
+
+echo "\n Using Iterator methods to iterate \n\n";
 
 for ($BookTitles->rewind(); $BookTitles->valid(); $BookTitles->next()) { 
     echo $BookTitles->current() . "\n"; 
