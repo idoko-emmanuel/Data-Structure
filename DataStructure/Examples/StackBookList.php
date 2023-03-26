@@ -42,6 +42,16 @@ class StackBookList implements Stack {
     }
 }
 
-
+try { 
+    $programmingBooks = new StackBookList(); 
+    $programmingBooks->push("Introduction to PHP7"); 
+    $programmingBooks->push("Mastering JavaScript"); 
+    $programmingBooks->push("MySQL Workbench tutorial"); 
+    echo $programmingBooks->pop()."\n"; 
+    echo $programmingBooks->pop()."\n"; 
+    echo $programmingBooks->top()."\n"; 
+} catch (Exception $e) { 
+    echo $e->getMessage(); 
+}
 
 ?>

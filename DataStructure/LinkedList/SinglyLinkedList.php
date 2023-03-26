@@ -199,6 +199,16 @@ class SinglyLinkedList extends SinglyList implements \Iterator {
         } 
     } 
 
+    public function getSize() {
+        $size = 0;
+        $current = $this->_firstNode;
+        while ($current != null) {
+            $size++;
+            $current = $current->next;
+        }
+        return $size;
+    }
+
 } 
 
 $BookTitles = new SinglyLinkedList(); 

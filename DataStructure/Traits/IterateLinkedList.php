@@ -1,7 +1,7 @@
 <?php 
 namespace DataStructure\Traits;
 
-trait iterateLinkedList {
+trait IterateLinkedList {
 
     private $_currentNode = NULL; 
     private $_currentPosition = 0; 
