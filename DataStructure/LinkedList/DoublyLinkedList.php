@@ -174,6 +174,18 @@ class DoublyLinkedList
             }
         }
     }
+
+    /*Displaying the list forward
+    Doubly linked lists gives us the opportunity to display the list in both directions. So far, we have seen that we can display the list in a unidirectional way while working in a singly linked list. Now, we will see the list from both directions. Here is the code used to display the list forward:*/
+
+    public function displayForward() { 
+        echo "Total book titles: " . $this->_totalNode . "\n"; 
+        $currentNode = $this->_firstNode; 
+        while ($currentNode !== NULL) { 
+            echo $currentNode->data . "\n"; 
+            $currentNode = $currentNode->next; 
+        } 
+    }
     
 }
 
