@@ -6,9 +6,34 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use DataStructure\listNode;
 
 
-class LinkedList { 
+class LinkedList implements \Iterator{ 
+
     private $_firstNode = NULL; 
     private $_totalNodes = 0; 
+    private $_currentNode = NULL; 
+    private $_currentPosition = 0; 
+
+    public function current() { 
+        return $this->_currentNode->data; 
+    } 
+
+    public function next() { 
+        $this->_currentPosition++; 
+        $this->_currentNode = $this->_currentNode->next; 
+    } 
+
+    public function key() { 
+        return $this->_currentPosition; 
+    } 
+
+    public function rewind() { 
+        $this->_currentPosition = 0; 
+        $this->_currentNode = $this->_firstNode; 
+    } 
+
+    public function valid() { 
+        return $this->_currentNode !== NULL; 
+    }
 
     public function insert(string $data = NULL) { 
        $newNode = new listNode($data); 
@@ -210,6 +235,11 @@ $BookTitles->insertBefore("This comes second", "Introduction to PHP and Data str
 $BookTitles->insertAfter("This comes last", "Programming Intelligence"); 
 $BookTitles->display();
 
+echo "\n Using Iterator trait, and implementing methods, linked list is now iterable \n\n";
+
+foreach ($BookTitles as $index => $title) { 
+    echo ($index+1)." ".$title . "\n"; 
+}
 echo "\n Delete first and last node\n\n";
 $BookTitles->deleteFirst();
 $BookTitles->deleteLast();
