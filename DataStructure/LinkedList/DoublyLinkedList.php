@@ -186,6 +186,18 @@ class DoublyLinkedList
             $currentNode = $currentNode->next; 
         } 
     }
+
+   /* Displaying the list backward
+    To display the list backward, we have to start from the last node and continue to move backward using the previous link until we reach the end of the list. This gives us a unique way of moving in any direction we need during operations. Here is the code for that:*/
+
+    public function displayBackward() { 
+        echo "Total book titles: " . $this->_totalNode . "\n"; 
+        $currentNode = $this->_lastNode; 
+        while ($currentNode !== NULL) { 
+            echo $currentNode->data . "\n"; 
+            $currentNode = $currentNode->prev; 
+        }
+    }
     
 }
 
