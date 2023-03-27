@@ -3,7 +3,7 @@ namespace DataStructure\LinkedList;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 use DataStructure\Abstracts\DoublyList;
-use DataStructure\LinkedList\DoublyListNode;
+use DataStructure\LinkedList\Nodes\DoublyListNode;
 
 
 class DoublyLinkedList extends DoublyList
@@ -21,7 +21,7 @@ class DoublyLinkedList extends DoublyList
     Assign the previous first node's previous link to the new first node.*/
 
     public function insertAtFirst(string $data = NULL) {
-        $newNode = new ListNode($data);
+        $newNode = new DoublyListNode($data);
         if ($this->_firstNode === NULL) {
             $this->_firstNode = &$newNode;
             $this->_lastNode = $newNode; 
@@ -44,7 +44,7 @@ class DoublyLinkedList extends DoublyList
     Assign the previous last node's next link to the new last node's previous link.*/
 
     public function insertAtLast(string $data = NULL) { 
-        $newNode = new ListNode($data);
+        $newNode = new DoublyListNode($data);
         if ($this->_firstNode === NULL) {
             $this->_firstNode = &$newNode; 
             $this->_lastNode = $newNode; 
@@ -63,7 +63,7 @@ class DoublyLinkedList extends DoublyList
 
     public function insertBefore(string $data = NULL, string $query =  
       NULL) {
-        $newNode = new ListNode($data); 
+        $newNode = new DoublyListNode($data); 
 
         if ($this->_firstNode) { 
             $previous = NULL; 
@@ -88,7 +88,7 @@ class DoublyLinkedList extends DoublyList
 
     public function insertAfter(string $data = NULL, string $query = 
       NULL) { 
-        $newNode = new ListNode($data);
+        $newNode = new DoublyListNode($data);
 
         if ($this->_firstNode) { 
             $nextNode = NULL; 

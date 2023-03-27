@@ -3,7 +3,7 @@ namespace DataStructure\LinkedList;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-use DataStructure\LinkedList\listNode;
+use DataStructure\LinkedList\Nodes\listNode;
 use DataStructure\Abstracts\SinglyList;
 use DataStructure\Traits\IterateLinkedList;
 
