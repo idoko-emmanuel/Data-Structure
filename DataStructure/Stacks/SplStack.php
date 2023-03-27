@@ -1,5 +1,5 @@
 <?php 
-namespace DataStructure\Examples;
+namespace DataStructure\Stacks;
 
 $books = new \SplStack(); 
 $books->push("Introduction to PHP7"); 

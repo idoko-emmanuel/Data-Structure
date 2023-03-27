@@ -1,5 +1,5 @@
 <?php 
-namespace DataStructure\Examples;
+namespace DataStructure\Stacks;
 
 class ExpressionChecker 
 {
@@ -45,7 +45,7 @@ class ExpressionChecker
                             $this->valid = FALSE; 
                         } 
                     } 
-                    break; 
+                break; 
         } 
     
        if (!$this->valid) 

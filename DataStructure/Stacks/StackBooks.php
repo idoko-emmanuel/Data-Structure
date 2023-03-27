@@ -1,5 +1,5 @@
 <?php 
-namespace DataStructure\Examples;
+namespace DataStructure\Stacks;
 require_once __DIR__ . '/../../vendor/autoload.php';
 
 use DataStructure\Interfaces\Stack;
