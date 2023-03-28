@@ -9,6 +9,8 @@ class Customer extends Connection
 {
     use Model;
 
+    private $tablename = 'customer';
+    
     public function __construct()
     {
         parent::__construct();
