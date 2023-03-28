@@ -1,7 +1,9 @@
 {
     "autoload": {
         "psr-4": {
-            "DataStructure\\": "DataStructure/"
+            "DataStructure\\": "DataStructure/",
+            "Database\\": "database/",
+            "Database\\Migrations\\": "database/migrations/"
         }
     }
 }

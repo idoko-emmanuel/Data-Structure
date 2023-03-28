@@ -9,11 +9,21 @@ class ComposerStaticInitaa4157b55e0a2efe415b9b6e34419f46
     public static $prefixLengthsPsr4 = array (
         'D' => 
         array (
+            'Database\\Migrations\\' => 20,
+            'Database\\' => 9,
             'DataStructure\\' => 14,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Database\\Migrations\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/database/migrations',
+        ),
+        'Database\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/database',
+        ),
         'DataStructure\\' => 
         array (
             0 => __DIR__ . '/../..' . '/DataStructure',

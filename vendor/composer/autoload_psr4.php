@@ -6,5 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Database\\Migrations\\' => array($baseDir . '/database/migrations'),
+    'Database\\' => array($baseDir . '/database'),
     'DataStructure\\' => array($baseDir . '/DataStructure'),
 );
